@@ -1,4 +1,7 @@
 import requests
+import sys
+
+sys.stdout.reconfigure(encoding='utf-8')
 
 # 🔧 CONFIG — Replace these with your own repo info
 GITHUB_USER = "ezmarie-p"
@@ -24,7 +27,7 @@ data = response.json()
 # Extract file names and generate full CDN URLs
 image_urls = []
 for file in data:
-    if file["name"].lower().endswith((".jpg", ".jpeg", ".png", ".gif", ".webp")):
+    if file["name"].lower().endswith((".jpg", ".jpeg", ".png", ".gif", ".webp", ".jfif")):
         image_urls.append(cdn_base + file["name"])
 
 # Save URLs to a file
